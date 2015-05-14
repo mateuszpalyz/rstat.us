@@ -16,11 +16,15 @@
           %h3 Sign in with
           .twitter.option
             %a.button{:href=>'/auth/twitter'}
-              %span.icon.twitter
+              %icon.fa.fa-lg.fa-twitter
               Twitter
+          .github.option
+            %a.button{:href=>'/auth/github'}
+              %icon.fa.fa-lg.fa-github
+              Github
           .username.option
             %a.button{:href=>'/login'}
-              %span.icon.comment
+              %icon.fa.fa-lg.fa-comment
               Username
 
     #pitch
@@ -29,8 +33,11 @@
           .content
             %h3
               Sign Up
-            with Twitter or create a new account
-          = image_tag "slide1.png"
+            with Twitter, Github or create a new account
+          .login-options
+            %i.webicon.icon-twitter.large
+            %i.webicon.icon-github.large
+            %i.webicon.icon-mail.large
         #col-2.col
           .content
             %h3
