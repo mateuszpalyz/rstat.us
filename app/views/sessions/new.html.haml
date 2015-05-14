@@ -24,8 +24,12 @@
       %p Sign in with:
     .twitter.login-service
       %a.button{:href=>'/auth/twitter'}
-        %span.icon.twitter
+        %icon.fa.fa-lg.fa-twitter
         Twitter
+    .github.login-service
+      %a.button{:href=>'/auth/github'}
+        %icon.fa.fa-lg.fa-github
+        Github
 
 - content_for :javascript do
   :javascript
