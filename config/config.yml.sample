@@ -12,6 +12,10 @@ development:
   CONSUMER_KEY: asdf
   CONSUMER_SECRET: asdf
 
+  # Github API stuff
+  GITHUB_KEY:
+  GITHUB_SECRET:
+
   # ElasticSearch configuration.
   # If empty, a default regex search will be used.
   ELASTICSEARCH_INDEX_URL:
