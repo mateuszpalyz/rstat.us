@@ -127,6 +127,16 @@ class User
     get_authorization(:twitter)
   end
 
+  # Returns true when this user has a twitter authorization
+  def github?
+    has_authorization?(:github)
+  end
+
+  # Returns the twitter authorization
+  def github
+    get_authorization(:github)
+  end
+
   # Check if a a user has a certain authorization by providing the associated
   # provider
   def has_authorization?(auth)
