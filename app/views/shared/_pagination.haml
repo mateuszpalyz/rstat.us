@@ -1,4 +1,19 @@
 %nav.pagination
+
+  .loading-info.hidden
+    .popover.scroll-help-popover.hidden
+      %b TIP:
+      You can disable infinite scroll in your
+      - if logged_in?
+        != "#{link_to 'profile settings', edit_user_path(current_user)}."
+      - else
+        profile settings.
+      .arrow
+    %p
+      Keep scrolling to load more data
+      %span.fa.fa-question-circle.fa-lg.scroll-help
+    %i.fa.fa-hand-o-down.fa-lg
+
   - unless @previous_page.nil?
     %a.button{:href => @previous_page, :id => "prev_button", :rel => "previous"}
       &laquo; Previous
