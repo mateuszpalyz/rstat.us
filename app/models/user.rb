@@ -357,7 +357,7 @@ class User
 
     self.always_send_to_twitter = params[:user] && params[:user][:always_send_to_twitter].to_i
 
-    self.infinite_scroll        = params[:user][:infinite_scroll]
+    self.infinite_scroll        = params[:user][:infinite_scroll] if params[:user] && params[:user][:infinite_scroll]
 
     # I can't figure out how to use a real rails validator to confirm that
     # password matches password_confirm, since these two attributes are
