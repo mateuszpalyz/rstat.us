@@ -42,6 +42,8 @@ class User
   # Global preference set via user's profile controlling the state of the Post to Twitter checkbox
   key :always_send_to_twitter, Integer, :default => 1
 
+  key :infinite_scroll, Boolean, default: true
+
   validate :email_already_confirmed
   validates_uniqueness_of :username,
                           :allow_nil => :true,
@@ -354,6 +356,8 @@ class User
     self.email                  = params[:email]
 
     self.always_send_to_twitter = params[:user] && params[:user][:always_send_to_twitter].to_i
+
+    self.infinite_scroll        = params[:user][:infinite_scroll]
 
     # I can't figure out how to use a real rails validator to confirm that
     # password matches password_confirm, since these two attributes are
