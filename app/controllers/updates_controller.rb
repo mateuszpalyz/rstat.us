@@ -5,27 +5,35 @@ class UpdatesController < ApplicationController
   def index
     @title = "updates"
     @list_class = "all"
+    prepare_updates(Update)
 
     respond_to do |format|
-      format.html { render_index(Update) }
+      format.html { render :index, :layout => show_layout? }
       format.json {
-        @updates = Update
-        set_pagination
         render :json => @updates.map{ |u| UpdateJsonDecorator.decorate(u) }
       }
+      format.js
     end
   end
 
   def timeline
     if current_user
       @list_class = "friends"
-      render_index(current_user.timeline)
+      prepare_updates(current_user.timeline)
+      respond_to do |format|
+        format.html { render :index, :layout => show_layout? }
+        format.js { render :index }
+      end
     end
   end
 
   def replies
     @list_class = "mentions"
-    render_index(current_user.at_replies)
+    prepare_updates(current_user.at_replies)
+    respond_to do |format|
+      format.html { render :index, :layout => show_layout? }
+      format.js { render :index }
+    end
   end
 
   def export
@@ -93,18 +101,11 @@ class UpdatesController < ApplicationController
 
   protected
 
-  # Manage page state
-  def set_pagination
+  # Prepare correct updates depending on request type
+  def prepare_updates(updates)
     set_params_page
-    @updates = @updates.paginate(:page => params[:page], :per_page => params[:per_page], :order => :created_at.desc)
+    @updates = updates.paginate(:page => params[:page], :per_page => params[:per_page], :order => :created_at.desc)
     set_pagination_buttons(@updates)
-  end
-
-  # Render correct haml depending on request type
-  def render_index(updates)
-    @updates = updates
-    set_pagination
-    render :index, :layout => show_layout?
   end
 
   def process_params
