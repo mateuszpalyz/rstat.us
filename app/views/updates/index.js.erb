@@ -1,0 +1,21 @@
+$('.updates-scroll').append('<%= j render @updates, no_highlight: defined?(no_highlight) %>');
+<% if @updates.next_page %>
+  $('.pagination').replaceWith('<%= j raw render "shared/pagination" %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+
+var popover;
+popover = $('.scroll-help-popover');
+
+$('.scroll-help').on('click', function(e) {
+  e.stopPropagation();
+  if (popover.hasClass('hidden')) {
+    popover.removeClass('hidden');
+    return $(document).on('click', function() {
+      return popover.addClass('hidden');
+    });
+  } else {
+    return popover.addClass('hidden');
+  }
+});
