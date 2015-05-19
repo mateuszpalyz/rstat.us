@@ -44,6 +44,7 @@ class UsersController < ApplicationController
         format.json {
           render :json => @updates.map{ |u| UpdateJsonDecorator.decorate(u) }
         }
+        format.js { render 'updates/index', locals: { no_highlight: true } }
       end
 
     end
