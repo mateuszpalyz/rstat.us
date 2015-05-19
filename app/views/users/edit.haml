@@ -20,6 +20,14 @@
       = render :partial => "shared/field", :locals => {:obj => @user.author, :attr => :website, :params => params}
       = render :partial => "shared/field", :locals => {:obj => @user.author, :attr => :bio, :as => :text, :params => params}
 
+    .form-section.infinite_scroll_toggle.hidden
+      = f.check_box :infinite_scroll, class: 'hidden'
+      = label_tag '', "Updates' feed infinite scroll"
+      - if current_user.infinite_scroll
+        %span.fa.fa-toggle-on.fa-lg.infinite-scroll-on
+      - else
+        %span.fa.fa-toggle-off.fa-lg.inifinite-scroll-off
+
     - if @user.twitter?
       .form-section.preferences
         .section-label
