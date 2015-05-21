@@ -208,6 +208,11 @@ While developing you can seed your database with a sample data:
 
     $ bundle exec rake db:seed
 
+Default user credentials:
+
+    username: johndoe
+    password: password
+
 ### Running the tests
 
 To run the tests you may want to make use of `bundle exec` so you don't get
