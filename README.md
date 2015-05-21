@@ -202,6 +202,12 @@ secret from Twitter. Here are the steps to do that:
 
 Now you should be able to sign in to your development version with Twitter!
 
+### Adding sample data
+
+While developing you can seed your database with a sample data:
+
+    $ rake db:seed
+
 ### Running the tests
 
 To run the tests you may want to make use of `bundle exec` so you don't get
