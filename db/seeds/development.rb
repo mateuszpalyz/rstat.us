@@ -2,7 +2,7 @@ include FFaker
 
 author_john = Author.create(username: 'johndoe', name: 'John Doe', password: 'password', domain: 'localhost:3000',
   email: 'johndoe@example.com', image_url: 'http://robohash.org/johndoe.png?size=300x300')
-user_john = User.create(username: 'johndoe', password: 'password', author: author_john, admin: true)
+user_john = User.create(username: 'johndoe', password: 'password', author: author_john, admin: true, email: 'johndoe@example.com')
 Admin.create(multiuser: true)
 
 5.times do
