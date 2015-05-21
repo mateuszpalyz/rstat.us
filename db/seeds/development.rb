@@ -7,7 +7,7 @@ Admin.create(multiuser: true)
 
 5.times do
   name     = Name.name
-  username = name.downcase.gsub(' ', '')
+  username = name.downcase.gsub(/\.|\s/, '')
   password = Internet.password
   domain   =  Internet.domain_name
   email = Internet.email
