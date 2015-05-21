@@ -206,7 +206,7 @@ Now you should be able to sign in to your development version with Twitter!
 
 While developing you can seed your database with a sample data:
 
-    $ rake db:seed
+    $ bundle exec rake db:seed
 
 ### Running the tests
 
