@@ -1,6 +1,7 @@
 include FFaker
 
-author_john = Author.create(username: 'johndoe', name: 'John Doe', password: 'password', domain: 'localhost', email: 'johndoe@example.com')
+author_john = Author.create(username: 'johndoe', name: 'John Doe', password: 'password', domain: 'localhost',
+  email: 'johndoe@example.com', image_url: 'http://robohash.org/johndoe.png?size=300x300')
 user_john = User.create(username: 'johndoe', password: 'password', author: author_john)
 
 5.times do
@@ -9,7 +10,8 @@ user_john = User.create(username: 'johndoe', password: 'password', author: autho
   password = Internet.password
   domain   =  Internet.domain_name
   email = Internet.email
-  author = Author.create(username: username, name: name, password: password, domain: domain, email: email)
+  author = Author.create(username: username, name: name, password: password, domain: domain, email: email,
+    image_url: "http://robohash.org/#{username}.png?size=300x300")
   User.create(username: username, password: password, author: author, email: email)
 end
 
