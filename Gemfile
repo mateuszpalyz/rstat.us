@@ -67,6 +67,7 @@ group :development, :test do
   gem "launchy",                "~> 2.4.2"
   gem "minitest",               "~> 4.2.0"
   gem "quiet_assets",           "~> 1.0.0"
+  gem "ffaker"
 end
 
 group :test do
