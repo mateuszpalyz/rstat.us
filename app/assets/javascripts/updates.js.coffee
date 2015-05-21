@@ -5,7 +5,7 @@ jQuery ->
       prev_button = $('#prev_button')
       url = next_button.attr('href')
 
-      if (next_button || prev_button) && $(window).scrollTop() > $(document).height() - $(window).height() - 150
+      if (next_button.length || prev_button.length) && $(window).scrollTop() > $(document).height() - $(window).height() - 150
         next_button.addClass('hidden')
         prev_button.addClass('hidden')
         $('.loading-info').removeClass('hidden')
